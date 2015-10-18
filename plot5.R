@@ -1,4 +1,6 @@
-# How have emissions from motor vehicle sources changed from 1999-2008 in Baltimore City? 
+# Coursera Exploratory Data Project Two
+# Question Five - How have emissions from motor vehicle sources changed from
+# 1999-2008 in Baltimore City? 
 
 # Read the data
 NEI <- readRDS("summarySCC_PM25.rds")
@@ -9,10 +11,14 @@ Baltimore <- subset(NEI,fips == "24510")
 
 # get the subset of motor pollutants
 SCC_Motor <- grep("motor", SCC$Short.Name, ignore.case = TRUE)
+# Make sure the subset is characters
 SCC_Motor <- as.character(SCC_Motor)
+# Make a subset of the motor vehicle sources 
 SCC <- SCC[SCC_Motor,]
+# Make a subset of the motor vehicle sources in Baltimore
 Baltimore <- Baltimore[Baltimore$SCC %in% SCC$SCC, ]
 
+# Summate the emissions by year
 TotalsByYear <- tapply(Baltimore$Emissions,Baltimore$year,sum)
 
 # Create the graphics device
