@@ -29,4 +29,5 @@ g <- qplot(year, Emissions, data=TotalsByYearPerPointType, color=type, geom ="li
 g <- g + ggtitle("Total PM2.5 Emissions Per Year In Baltimore, Maryland") + xlab("Year") + ylab("Emissions (Thousands of Tons)")
 print(g)
 
+# Save the graphics
 dev.off()

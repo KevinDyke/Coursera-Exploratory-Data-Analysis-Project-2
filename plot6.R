@@ -18,7 +18,7 @@ SCC_Motor <- grep("motor", SCC$Short.Name, ignore.case = TRUE)
 SCC_Motor <- as.character(SCC_Motor)
 # Get the subset of motor vehicle pollutions
 SCC <- SCC[SCC_Motor,]
-# Get the subset of motot vehicle pollutions in Baltimore
+# Get the subset of motot vehicle pollutions in the areas of interest
 Counties <- Counties[Counties$SCC %in% SCC$SCC, ]
 
 # Summate the emissions by year
@@ -35,4 +35,5 @@ g <- g + ggtitle("Total PM2.5 Emissions From Motor Vehicle Sources Per Year\nIn 
 g <- g + xlab("Year") + ylab("Emissions")
 print(g)
 
+# Save the graphics
 dev.off()
